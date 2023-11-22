@@ -31,5 +31,4 @@
         SET pic = #{pic}
         WHERE iuser = #{iuser}
     </update>
-
 </mapper>

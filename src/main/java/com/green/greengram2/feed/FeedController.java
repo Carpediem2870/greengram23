@@ -1,10 +1,7 @@
 package com.green.greengram2.feed;
 
 import com.green.greengram2.ResVo;
-import com.green.greengram2.feed.model.FeedFavDto;
-import com.green.greengram2.feed.model.FeedInsDto;
-import com.green.greengram2.feed.model.FeedSelDto;
-import com.green.greengram2.feed.model.FeedSelVo;
+import com.green.greengram2.feed.model.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -70,5 +67,17 @@ public class FeedController {
     public ResVo toggleFav(FeedFavDto dto) {
         log.info("dto: {}", dto);
         return service.toggleFeedFav(dto);
+    }
+
+    @PostMapping("/comment")
+    public ResVo commentIns(@RequestBody FeedCommentInsDto dto) {
+        log.info("comment: {}", dto);
+        return service.insComment(dto);
+    }
+
+    @GetMapping("/com")
+    public List<FeedCommentInsDto> selComment(@RequestBody FeedCommentInsDto dto) {
+        log.info("comment: {}", dto);
+        return service.selCommentAll(dto);
     }
 }
